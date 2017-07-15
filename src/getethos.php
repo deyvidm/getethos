@@ -45,7 +45,7 @@ class GetEthos
 			$response = $this->makeRequest($curl, 10, $sum);
 			if($response !== "Not Found") {
 				if($response !== "That's not a cool sum.") {
-					file_put_contents($outputFile, $sum . " : " . $response . "\n");
+					file_put_contents($outputFile, $sum . " : " . print_r($response, true) . "\n");
 					break;
 				}
 			}
