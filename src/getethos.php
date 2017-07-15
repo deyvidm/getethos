@@ -32,6 +32,25 @@ class GetEthos
         return $this->generateCoolNumber($sum);
     }
 
+    public function cheat()
+    {
+        $curl = $this->getCh();
+
+        foreach(range(1000000, 1) as $sum)
+        {
+            if ($sum % 100 === 0)
+                echo "at $sum\n";
+            $response = $this->makeRequest($curl, 10 , $sum);
+            if ($response !== "Not Found") {
+                if ($response !== "That's not a cool sum.") {
+                    echo $num . " : " . $response."\n";
+
+                    break;
+                }
+            }
+        }
+    }
+
     public function solve()
     {
         $filename = __DIR__."/sumTo1Mil";
@@ -56,7 +75,7 @@ class GetEthos
 
             $response = $this->makeRequest($curl, $num, $sum);
             if ($response !== "Not Found") {
-                echo $response."\n";
+                echo $num . " : " . $response."\n";
             }
         }
     }
@@ -69,12 +88,8 @@ class GetEthos
             CURLOPT_HTTPHEADER => [
             "x-cool-sum: $sum"
             ]
-        ]);
+            ]);
         return curl_exec($ch);
-    }
-
-    public function cheat()
-    {
     }
 
     private function getCh()
