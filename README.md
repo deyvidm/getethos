@@ -13,5 +13,7 @@ Let's flip that display to 'block' and read our instructions.
 ![some lame alt text](assets/part_2.png)
 
 ####Part 2
+<br>
+
 ![adventure time's the bomb](assets/mathematical.gif)
 
