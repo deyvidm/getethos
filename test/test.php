@@ -20,18 +20,17 @@ assert_options(ASSERT_CALLBACK, 'assertHandler');
 $ethos = new GetEthos();
 echo "starting testing for cool numbers\n";
 echo "=================================\n";
-testGetCoolNumber($ethos, 23, 1);
-testGetCoolNumber($ethos, 3, 3);
-testGetCoolNumber($ethos, 2.3, false);
-testGetCoolNumber($ethos, "adsf", false);
-testGetCoolNumber($ethos, 423, 4);
+testGetCoolNumber($ethos, 23, true);
+testGetCoolNumber($ethos, 100, true);
+testGetCoolNumber($ethos, 3, false);
+testGetCoolNumber($ethos, 423, false);
 
 function testGetCoolNumber($ethos, $input, $expected)
 {
-    echo "testing $input...";
-    assert($ethos->generateCoolNumber($input) === $expected,
+    echo "testing $input\n";
+    $result = $ethos->isCoolNumber($input);
+    assert( $result === $expected,
             "\nin:   $input\n" . 
-            "got:  ". $ethos->generateCoolNumber($input) . "\n" .
+            "got:  ". $result . "\n" .
             "want: $expected\n");
-    echo "pass\n";
 }
