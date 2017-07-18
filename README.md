@@ -14,6 +14,7 @@ Let's flip that display to 'block' and read our instructions.
 
 ####Part 2
 <br>
+Time for adventure!
 
 ![adventure time's the bomb](assets/mathematical.gif)
 
